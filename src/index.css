@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    /* Flat black, like a screening room — no colour cast. */
+    background-color: #080808;
+    color: #b9b9b9;
+  }
+
+  ::selection {
+    @apply bg-crimson-600/40 text-white;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display tracking-tight text-white;
+  }
+
+  /* Refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 999px;
+    border: 2px solid #080808;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+  }
+}
+
+@layer components {
+  /* Frosted glass surfaces — dark and clean */
+  .glass {
+    @apply bg-ink-850/70 backdrop-blur-xl border border-white/[0.07];
+  }
+  .glass-strong {
+    @apply bg-ink-850/90 backdrop-blur-2xl border border-white/[0.08];
+  }
+
+  .card-surface {
+    @apply bg-ink-850 border border-white/[0.06] rounded-2xl;
+  }
+
+  /* Bright platinum gradient text (brand + display accents) */
+  .text-gradient-gold {
+    @apply bg-gradient-to-b from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent;
+  }
+  .text-gradient-soft {
+    @apply bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent;
+  }
+
+  /* Thin uppercase eyebrow label — muted, editorial */
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.24em] text-neutral-400;
+  }
+
+  /* Hide scrollbar but keep scroll (horizontal rails) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Slim, visible horizontal scrollbar for film rails */
+  .rail-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+  }
+  .rail-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  .rail-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .rail-scroll::-webkit-scrollbar-thumb {
+    background: #2c2c2c;
+    border-radius: 999px;
+  }
+  .rail-scroll:hover::-webkit-scrollbar-thumb {
+    background: #3d3d3d;
+  }
+
+  /* Filmic grain overlay */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+  .text-shadow-lg {
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.7);
+  }
+  .perspective {
+    perspective: 1200px;
+  }
+}
