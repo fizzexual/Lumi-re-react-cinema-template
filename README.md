@@ -1,10 +1,14 @@
-# 🎬 Lumière — Cinema & Ticketing
+# 🎬 Lumière — Cinema & Ticketing 🍂
 
 A modern, premium, **white‑label cinema website** — film discovery, social reviews and a complete seat‑booking flow, wrapped in a flat‑black, Netflix‑grade UI.
 
 Built with **React + TypeScript + Vite + Tailwind CSS**, animated with **Framer Motion**, and powered by **real film data and imagery from [TMDB](https://www.themoviedb.org/)**.
 
 ![Lumière home page](docs/home.jpg)
+
+## About
+
+Lumière is a front-end template for a cinema website: browsing films, reading and writing reviews, and booking seats. It is meant for cinema chains, studios or agencies that want a ready-made UI to rebrand and connect to their own film and ticketing API. The current version is a front end only: film data is a static TMDB-based demo set and payment is simulated.
 
 ---
 
