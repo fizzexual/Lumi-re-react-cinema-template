@@ -141,5 +141,5 @@ Payment is **simulated** — no real transactions occur.
 
 ## 📄 License
 
-Provided as a template for demonstration and learning. Replace placeholder
-content and confirm media licensing before any commercial deployment.
+The code is MIT-licensed — see [LICENSE](LICENSE). Film data and posters come from TMDB and are not
+covered: replace them with your own licensed content before any commercial deployment.
