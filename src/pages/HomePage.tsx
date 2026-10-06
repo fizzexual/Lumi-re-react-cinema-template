@@ -107,13 +107,13 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-850 p-6 transition-colors hover:border-white/15"
+                className="group relative overflow-hidden rounded-2xl border border-white/6 bg-ink-850 p-6 transition-colors hover:border-white/15"
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${exp.tint} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+                  className={`absolute inset-0 bg-linear-to-br/srgb ${exp.tint} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
                 />
                 <div className="relative">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/[0.06] text-gold-300">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/6 text-gold-300">
                     <exp.icon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-4 text-lg font-bold text-white">{exp.name}</h3>
@@ -148,7 +148,7 @@ export default function HomePage() {
               <Link
                 key={c.id}
                 to="/cinemas"
-                className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-850 p-5 transition-all hover:-translate-y-1 hover:border-white/15"
+                className="group relative overflow-hidden rounded-2xl border border-white/6 bg-ink-850 p-5 transition-all hover:-translate-y-1 hover:border-white/15"
               >
                 <MapPin className="h-5 w-5 text-gold-300" />
                 <h3 className="mt-3 text-base font-bold text-white">{c.name}</h3>
@@ -162,7 +162,7 @@ export default function HomePage() {
                   {c.formats.slice(0, 3).map((f) => (
                     <span
                       key={f}
-                      className="rounded-full bg-white/[0.05] px-2 py-0.5 text-[10px] font-medium text-slate-300"
+                      className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-medium text-slate-300"
                     >
                       {f}
                     </span>
@@ -176,8 +176,8 @@ export default function HomePage() {
 
       {/* Membership band */}
       <Container>
-        <div className="relative grid items-center gap-8 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-ink-800 via-ink-850 to-ink-900 px-8 py-12 sm:px-12 sm:py-16 lg:grid-cols-[1.1fr_1fr]">
-          <div className="absolute inset-0 bg-gradient-to-r from-crimson-600/10 to-transparent" />
+        <div className="relative grid items-center gap-8 overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br/srgb from-ink-800 via-ink-850 to-ink-900 px-8 py-12 sm:px-12 sm:py-16 lg:grid-cols-[1.1fr_1fr]">
+          <div className="absolute inset-0 bg-linear-to-r/srgb from-crimson-600/10 to-transparent" />
           <div className="relative max-w-xl">
             <p className="eyebrow mb-3">Lumière Unlimited</p>
             <h2 className="text-3xl font-extrabold sm:text-4xl">
@@ -192,7 +192,7 @@ export default function HomePage() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 to="/offers"
-                className="inline-flex items-center gap-2 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-6 py-3 text-sm font-bold text-ink-950 shadow-glow transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-6 py-3 text-sm font-bold text-ink-950 shadow-glow transition-transform hover:-translate-y-0.5"
               >
                 Join Unlimited <ArrowRight className="h-4 w-4" />
               </Link>

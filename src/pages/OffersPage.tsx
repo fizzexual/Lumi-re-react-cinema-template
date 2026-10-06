@@ -104,12 +104,12 @@ export default function OffersPage() {
             className={cn(
               'relative flex flex-col rounded-3xl border p-7',
               plan.highlight
-                ? 'border-gold-300/40 bg-gradient-to-b from-gold-500/[0.1] to-ink-850 shadow-glow'
-                : 'border-white/[0.06] bg-ink-850/60',
+                ? 'border-gold-300/40 bg-linear-to-b/srgb from-gold-500/10 to-ink-850 shadow-glow'
+                : 'border-white/6 bg-ink-850/60',
             )}
           >
             {plan.highlight && (
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-4 py-1 text-xs font-bold text-ink-950">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-4 py-1 text-xs font-bold text-ink-950">
                 Most popular
               </span>
             )}
@@ -138,8 +138,8 @@ export default function OffersPage() {
               className={cn(
                 'mt-7 rounded-full py-3 text-center text-sm font-bold transition-transform hover:-translate-y-0.5',
                 plan.highlight
-                  ? 'bg-gradient-to-b from-gold-300 to-gold-500 text-ink-950 shadow-glow'
-                  : 'border border-white/15 text-white hover:bg-white/[0.06]',
+                  ? 'bg-linear-to-b/srgb from-gold-300 to-gold-500 text-ink-950 shadow-glow'
+                  : 'border border-white/15 text-white hover:bg-white/6',
               )}
             >
               {plan.cta}
@@ -155,16 +155,16 @@ export default function OffersPage() {
           {deals.map((deal) => (
             <div
               key={deal.title}
-              className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6 transition-colors hover:border-white/15"
+              className="group relative overflow-hidden rounded-2xl border border-white/6 bg-ink-850/60 p-6 transition-colors hover:border-white/15"
             >
               <div
                 className={cn(
-                  'absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity group-hover:opacity-100',
+                  'absolute inset-0 bg-linear-to-br/srgb to-transparent opacity-0 transition-opacity group-hover:opacity-100',
                   deal.tint,
                 )}
               />
               <div className="relative">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/[0.06] text-gold-300">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/6 text-gold-300">
                   <deal.icon className="h-5 w-5" />
                 </span>
                 <h3 className="mt-4 font-bold text-white">{deal.title}</h3>
@@ -178,7 +178,7 @@ export default function OffersPage() {
       </div>
 
       {/* CTA band */}
-      <div className="mt-20 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-crimson-600/20 via-ink-850 to-gold-500/10 p-10 text-center">
+      <div className="mt-20 overflow-hidden rounded-3xl border border-white/10 bg-linear-to-r/srgb from-crimson-600/20 via-ink-850 to-gold-500/10 p-10 text-center">
         <h2 className="text-2xl font-extrabold sm:text-3xl">
           Corporate &amp; private hire
         </h2>

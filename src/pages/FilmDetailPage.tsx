@@ -77,8 +77,8 @@ export default function FilmDetailPage() {
             />
           )}
         </div>
-        <div className="absolute inset-0 h-[560px] bg-gradient-to-t from-ink-950 via-ink-950/50 to-transparent" />
-        <div className="absolute inset-0 h-[560px] bg-gradient-to-r from-ink-950/80 to-transparent" />
+        <div className="absolute inset-0 h-[560px] bg-linear-to-t/srgb from-ink-950 via-ink-950/50 to-transparent" />
+        <div className="absolute inset-0 h-[560px] bg-linear-to-r/srgb from-ink-950/80 to-transparent" />
 
         <Container className="relative pt-24">
           <Link
@@ -96,7 +96,7 @@ export default function FilmDetailPage() {
               transition={{ duration: 0.5 }}
               className="mx-auto w-48 overflow-hidden rounded-2xl border border-white/10 shadow-card md:mx-0 md:w-full"
             >
-              <div className="aspect-[2/3]">
+              <div className="aspect-2/3">
                 <Poster film={film} />
               </div>
             </motion.div>
@@ -115,7 +115,7 @@ export default function FilmDetailPage() {
                 ))}
               </div>
 
-              <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-white text-shadow-lg sm:text-5xl lg:text-6xl">
+              <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-white text-shadow-lg sm:text-5xl sm:leading-none lg:text-6xl">
                 {film.title}
               </h1>
               <p className="mt-3 text-lg italic text-slate-300">“{film.tagline}”</p>
@@ -139,19 +139,19 @@ export default function FilmDetailPage() {
                 {isComingSoon ? (
                   <button
                     onClick={() => setTab('showtimes')}
-                    className="inline-flex items-center gap-2 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-7 py-3.5 text-base font-bold text-ink-950 shadow-glow transition-transform hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-7 py-3.5 text-base font-bold text-ink-950 shadow-glow transition-transform hover:-translate-y-0.5"
                   >
                     <Bell className="h-5 w-5" /> Notify me
                   </button>
                 ) : (
                   <button
                     onClick={() => setTab('showtimes')}
-                    className="inline-flex items-center gap-2 rounded-md bg-gradient-to-b from-crimson-500 to-crimson-600 px-7 py-3.5 text-base font-bold text-white shadow-glow-crimson transition-transform hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 rounded-md bg-linear-to-b/srgb from-crimson-500 to-crimson-600 px-7 py-3.5 text-base font-bold text-white shadow-glow-crimson transition-transform hover:-translate-y-0.5"
                   >
                     <Ticket className="h-5 w-5" /> Book tickets
                   </button>
                 )}
-                <button className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/[0.04] px-6 py-3.5 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/[0.1]">
+                <button className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/4 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10">
                   <Play className="h-5 w-5 fill-white" /> Trailer
                 </button>
                 <button
@@ -160,7 +160,7 @@ export default function FilmDetailPage() {
                     'grid h-[52px] w-[52px] place-items-center rounded-full border transition-all',
                     saved
                       ? 'border-crimson-500/50 bg-crimson-500/15 text-crimson-400'
-                      : 'border-white/20 bg-white/[0.04] text-white hover:bg-white/[0.1]',
+                      : 'border-white/20 bg-white/4 text-white hover:bg-white/10',
                   )}
                   aria-label={saved ? 'Remove from watchlist' : 'Add to watchlist'}
                   title={saved ? 'In your watchlist' : 'Add to watchlist'}
@@ -170,7 +170,7 @@ export default function FilmDetailPage() {
               </div>
 
               {film.awards && film.awards.length > 0 && (
-                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold-300/20 bg-gold-300/[0.06] px-4 py-2 text-sm text-gold-200">
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold-300/20 bg-gold-300/6 px-4 py-2 text-sm text-gold-200">
                   <Award className="h-4 w-4" /> {film.awards[0]}
                 </div>
               )}
@@ -181,7 +181,7 @@ export default function FilmDetailPage() {
 
       {/* Tabs */}
       <Container className="mt-8">
-        <div className="sticky top-16 z-30 mb-8 flex gap-1 border-b border-white/[0.08] bg-ink-950/70 backdrop-blur-xl">
+        <div className="sticky top-16 z-30 mb-8 flex gap-1 border-b border-white/8 bg-ink-950/70 backdrop-blur-xl">
           {tabs.map((tb) => (
             <button
               key={tb.key}
@@ -252,7 +252,7 @@ function Overview({ film }: { film: ReturnType<typeof filmBySlug> }) {
               transition={{ delay: i * 0.05, duration: 0.4 }}
               className="group/cast"
             >
-              <div className="aspect-[2/3] overflow-hidden rounded-lg border border-white/[0.06] shadow-card transition-all duration-300 group-hover/cast:-translate-y-1 group-hover/cast:border-white/25">
+              <div className="aspect-2/3 overflow-hidden rounded-lg border border-white/6 shadow-card transition-all duration-300 group-hover/cast:-translate-y-1 group-hover/cast:border-white/25">
                 <CastPortrait name={c.name} />
               </div>
               <p className="mt-2 truncate text-sm font-bold leading-tight text-white">{c.name}</p>
@@ -287,14 +287,14 @@ function ReleasePanel({ film }: { film: ReturnType<typeof filmBySlug> }) {
         Tickets aren’t on sale yet. Get notified the moment booking opens for
         your local cinema.
       </p>
-      <div className="mt-6 inline-flex items-baseline gap-2 rounded-2xl bg-white/[0.04] px-6 py-4">
+      <div className="mt-6 inline-flex items-baseline gap-2 rounded-2xl bg-white/4 px-6 py-4">
         <span className="font-display text-4xl font-extrabold text-gradient-gold">
           {days}
         </span>
         <span className="text-sm text-slate-400">days to go</span>
       </div>
       <div className="mt-6">
-        <button className="inline-flex items-center gap-2 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-6 py-3 text-sm font-bold text-ink-950 shadow-glow">
+        <button className="inline-flex items-center gap-2 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-6 py-3 text-sm font-bold text-ink-950 shadow-glow">
           <Bell className="h-4 w-4" /> Notify me when tickets open
         </button>
       </div>
@@ -304,7 +304,7 @@ function ReleasePanel({ film }: { film: ReturnType<typeof filmBySlug> }) {
 
 function FactCard({ film }: { film: NonNullable<ReturnType<typeof filmBySlug>> }) {
   return (
-    <div className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-5">
+    <div className="rounded-2xl border border-white/6 bg-ink-850/60 p-5">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
         Details
       </h3>

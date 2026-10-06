@@ -71,14 +71,14 @@ export default function SeatSelectionPage() {
             <span className="font-semibold text-gold-200">{showtime.format}</span>
           </p>
         </div>
-        <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.08] px-3.5 py-1.5 text-xs font-medium text-emerald-300">
+        <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/8 px-3.5 py-1.5 text-xs font-medium text-emerald-300">
           <Zap className="h-3.5 w-3.5" /> Live availability
         </div>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
         {/* Seat map */}
-        <div className="overflow-x-auto rounded-3xl border border-white/[0.06] bg-ink-850/40 p-6 sm:p-10">
+        <div className="overflow-x-auto rounded-3xl border border-white/6 bg-ink-850/40 p-6 sm:p-10">
           <SeatMap
             seed={showtime.id}
             soldFraction={showtime.soldFraction}
@@ -91,11 +91,11 @@ export default function SeatSelectionPage() {
 
         {/* Summary */}
         <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-2xl border border-white/[0.06] bg-ink-850/70 p-5">
+          <div className="rounded-2xl border border-white/6 bg-ink-850/70 p-5">
             <h2 className="text-lg font-bold">Your selection</h2>
 
             {seats.length === 0 ? (
-              <div className="mt-4 flex items-start gap-2.5 rounded-xl bg-white/[0.04] p-4 text-sm text-slate-400">
+              <div className="mt-4 flex items-start gap-2.5 rounded-xl bg-white/4 p-4 text-sm text-slate-400">
                 <Info className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />
                 Tap an available seat to begin. Premium recliners are highlighted
                 in violet.
@@ -124,7 +124,7 @@ export default function SeatSelectionPage() {
               </div>
             )}
 
-            <dl className="mt-5 space-y-2 border-t border-white/[0.06] pt-4 text-sm">
+            <dl className="mt-5 space-y-2 border-t border-white/6 pt-4 text-sm">
               <div className="flex justify-between text-slate-400">
                 <dt>Seats</dt>
                 <dd className="font-medium text-white">{seats.length} / 10</dd>
@@ -143,7 +143,7 @@ export default function SeatSelectionPage() {
                   <dd className="text-white">{money(premiumCount * showtime.basePrice * 1.28)}</dd>
                 </div>
               )}
-              <div className="flex justify-between border-t border-white/[0.06] pt-2 text-base">
+              <div className="flex justify-between border-t border-white/6 pt-2 text-base">
                 <dt className="font-semibold text-white">Subtotal</dt>
                 <dd className="font-bold text-gold-200">{money(subtotal)}</dd>
               </div>
@@ -155,7 +155,7 @@ export default function SeatSelectionPage() {
             <button
               disabled={seats.length === 0}
               onClick={() => navigate('/checkout')}
-              className="mt-5 flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-b from-crimson-500 to-crimson-600 py-3.5 text-sm font-bold text-white shadow-glow-crimson transition-transform enabled:hover:-translate-y-0.5 disabled:opacity-40"
+              className="mt-5 flex w-full items-center justify-center gap-2 rounded-md bg-linear-to-b/srgb from-crimson-500 to-crimson-600 py-3.5 text-sm font-bold text-white shadow-glow-crimson transition-transform enabled:hover:-translate-y-0.5 disabled:opacity-40"
             >
               Continue to checkout <ArrowRight className="h-4 w-4" />
             </button>

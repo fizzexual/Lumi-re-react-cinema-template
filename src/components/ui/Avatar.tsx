@@ -39,7 +39,7 @@ export function Avatar({
   return (
     <span
       className={cn(
-        'grid shrink-0 place-items-center rounded-full bg-gradient-to-br font-bold text-white ring-1 ring-white/10',
+        'grid shrink-0 place-items-center rounded-full bg-linear-to-br/srgb font-bold text-white ring-1 ring-white/10',
         grad,
         sizes[size],
         className,

@@ -62,7 +62,7 @@ export function Chip({
         'inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-all',
         active
           ? 'border-gold-300/60 bg-gold-300/15 text-gold-200'
-          : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25 hover:text-white',
+          : 'border-white/10 bg-white/3 text-slate-300 hover:border-white/25 hover:text-white',
         onClick && 'cursor-pointer',
         className,
       )}

@@ -65,7 +65,7 @@ export function SearchOverlay({
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh]"
+          className="fixed inset-0 z-100 flex items-start justify-center px-4 pt-[12vh]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -81,7 +81,7 @@ export function SearchOverlay({
             exit={{ opacity: 0, y: -16, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 300, damping: 26 }}
           >
-            <div className="flex items-center gap-3 border-b border-white/[0.06] px-4">
+            <div className="flex items-center gap-3 border-b border-white/6 px-4">
               <Search className="h-5 w-5 shrink-0 text-slate-400" />
               <input
                 ref={inputRef}
@@ -94,7 +94,7 @@ export function SearchOverlay({
                   }
                 }}
                 placeholder={t('search.placeholder')}
-                className="w-full bg-transparent py-4 text-base text-white outline-none placeholder:text-slate-500"
+                className="w-full bg-transparent py-4 text-base text-white outline-hidden placeholder:text-slate-500"
               />
               <button
                 onClick={onClose}
@@ -119,7 +119,7 @@ export function SearchOverlay({
                           onClose()
                           navigate(`/browse?genre=${encodeURIComponent(g)}`)
                         }}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:border-white/25 hover:text-white"
+                        className="rounded-full border border-white/10 bg-white/4 px-3 py-1 text-xs font-medium text-slate-300 transition-colors hover:border-white/25 hover:text-white"
                       >
                         {g}
                       </button>
@@ -138,7 +138,7 @@ export function SearchOverlay({
                 <button
                   key={film.id}
                   onClick={() => go(film.slug)}
-                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors hover:bg-white/[0.06]"
+                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left transition-colors hover:bg-white/6"
                 >
                   <div className="h-14 w-10 shrink-0 overflow-hidden rounded-md">
                     <Poster film={film} />
@@ -170,7 +170,7 @@ export function SearchOverlay({
               )}
             </div>
 
-            <div className="flex items-center justify-between border-t border-white/[0.06] px-4 py-2.5 text-xs text-slate-500">
+            <div className="flex items-center justify-between border-t border-white/6 px-4 py-2.5 text-xs text-slate-500">
               <span className="flex items-center gap-1.5">
                 <CornerDownLeft className="h-3.5 w-3.5" /> to open · Esc to close
               </span>

@@ -60,7 +60,7 @@ export function Reviews({ filmId, fallbackScore }: { filmId: string; fallbackSco
   return (
     <div>
       {/* Summary header */}
-      <div className="grid gap-6 rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6 sm:grid-cols-[auto_1fr] sm:gap-10">
+      <div className="grid gap-6 rounded-2xl border border-white/6 bg-ink-850/60 p-6 sm:grid-cols-[auto_1fr] sm:gap-10">
         <div className="flex flex-col items-center justify-center text-center">
           <span className="font-display text-5xl font-extrabold text-white">
             {average.toFixed(1)}
@@ -82,7 +82,7 @@ export function Reviews({ filmId, fallbackScore }: { filmId: string; fallbackSco
                 <span className="w-12 shrink-0 text-slate-400">{star * 2}/10</span>
                 <span className="h-2 flex-1 overflow-hidden rounded-full bg-ink-700">
                   <span
-                    className="block h-full rounded-full bg-gradient-to-r from-gold-400 to-gold-300"
+                    className="block h-full rounded-full bg-linear-to-r/srgb from-gold-400 to-gold-300"
                     style={{ width: `${pct}%` }}
                   />
                 </span>
@@ -95,7 +95,7 @@ export function Reviews({ filmId, fallbackScore }: { filmId: string; fallbackSco
 
       {/* Controls */}
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1">
+        <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/3 p-1">
           {(['helpful', 'recent'] as const).map((s) => (
             <button
               key={s}
@@ -111,7 +111,7 @@ export function Reviews({ filmId, fallbackScore }: { filmId: string; fallbackSco
         </div>
         <button
           onClick={() => setFormOpen((v) => !v)}
-          className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/[0.12]"
+          className="inline-flex items-center gap-2 rounded-full bg-white/6 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/12"
         >
           <PenLine className="h-4 w-4" /> Write a review
         </button>
@@ -130,7 +130,7 @@ export function Reviews({ filmId, fallbackScore }: { filmId: string; fallbackSco
           />
         ))}
         {sorted.length === 0 && (
-          <p className="rounded-2xl border border-white/[0.06] bg-ink-850/60 px-5 py-10 text-center text-sm text-slate-400">
+          <p className="rounded-2xl border border-white/6 bg-ink-850/60 px-5 py-10 text-center text-sm text-slate-400">
             No reviews yet — be the first to share your thoughts.
           </p>
         )}
@@ -150,7 +150,7 @@ function ReviewCard({
 }) {
   const [showReplies, setShowReplies] = useState(false)
   return (
-    <div className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-5">
+    <div className="rounded-2xl border border-white/6 bg-ink-850/60 p-5">
       <div className="flex items-start gap-3">
         <Avatar name={review.author} />
         <div className="min-w-0 flex-1">
@@ -189,7 +189,7 @@ function ReviewCard({
           </div>
 
           {showReplies && review.replies && (
-            <div className="mt-4 space-y-3 border-l-2 border-white/[0.06] pl-4">
+            <div className="mt-4 space-y-3 border-l-2 border-white/6 pl-4">
               {review.replies.map((reply, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <Avatar name={reply.author} size="sm" />
@@ -237,14 +237,14 @@ function ReviewForm({
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Sum it up in a line…"
-        className="mt-4 w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white outline-none placeholder:text-slate-500 focus:border-gold-300/50"
+        className="mt-4 w-full rounded-xl border border-white/10 bg-white/3 px-4 py-2.5 text-sm text-white outline-hidden placeholder:text-slate-500 focus:border-gold-300/50"
       />
       <textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
         rows={4}
         placeholder="What did you make of it? No spoilers, please."
-        className="mt-3 w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white outline-none placeholder:text-slate-500 focus:border-gold-300/50"
+        className="mt-3 w-full resize-none rounded-xl border border-white/10 bg-white/3 px-4 py-2.5 text-sm text-white outline-hidden placeholder:text-slate-500 focus:border-gold-300/50"
       />
       <div className="mt-3 flex justify-end gap-2">
         <button
@@ -257,7 +257,7 @@ function ReviewForm({
         <button
           type="submit"
           disabled={!title.trim() || !body.trim()}
-          className="rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-5 py-2 text-sm font-bold text-ink-950 disabled:opacity-40"
+          className="rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-5 py-2 text-sm font-bold text-ink-950 disabled:opacity-40"
         >
           Post review
         </button>

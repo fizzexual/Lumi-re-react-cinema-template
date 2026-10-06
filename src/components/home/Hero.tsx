@@ -53,8 +53,8 @@ export function Hero() {
       </AnimatePresence>
 
       {/* Cinematic scrims — strong enough to keep text legible over bright stills */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/55 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t/srgb from-ink-950 via-ink-950/60 to-ink-950/10" />
+      <div className="absolute inset-0 bg-linear-to-r/srgb from-ink-950 via-ink-950/55 to-transparent" />
 
       <Container className="relative flex h-full flex-col justify-end pb-20">
         <AnimatePresence mode="wait">
@@ -75,7 +75,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white text-shadow-lg sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white text-shadow-lg sm:text-6xl sm:leading-none lg:text-7xl">
               {film.title}
             </h1>
             <p className="mt-4 max-w-xl text-lg italic text-slate-300">
@@ -100,11 +100,11 @@ export function Hero() {
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <Link
                 to={`/film/${film.slug}`}
-                className="inline-flex items-center gap-2 rounded-md bg-gradient-to-b from-crimson-500 to-crimson-600 px-7 py-3.5 text-base font-bold text-white shadow-glow-crimson transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-md bg-linear-to-b/srgb from-crimson-500 to-crimson-600 px-7 py-3.5 text-base font-bold text-white shadow-glow-crimson transition-transform hover:-translate-y-0.5"
               >
                 <Ticket className="h-5 w-5" /> {t('cta.book')}
               </Link>
-              <button className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/[0.04] px-6 py-3.5 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/[0.1]">
+              <button className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/4 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10">
                 <Play className="h-5 w-5 fill-white" /> Trailer
               </button>
               <Link

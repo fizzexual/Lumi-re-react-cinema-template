@@ -78,12 +78,12 @@ export default function AccountPage() {
   return (
     <Container className="pt-20">
       {/* ---------- Profile hero ---------- */}
-      <div className="relative overflow-hidden rounded-3xl border border-white/[0.06]">
+      <div className="relative overflow-hidden rounded-3xl border border-white/6">
         {/* banner */}
         <div className="relative h-40 sm:h-48">
           <Backdrop film={bannerFilm} />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-900/80 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t/srgb from-ink-900 via-ink-900/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r/srgb from-ink-900/80 to-transparent" />
           <div className="absolute right-4 top-4 flex gap-2">
             <HeaderAction icon={Pencil} label="Edit" />
             <HeaderAction icon={Settings} label="Settings" />
@@ -96,12 +96,12 @@ export default function AccountPage() {
               <Avatar
                 name="Alex Rivera"
                 size="lg"
-                className="!h-24 !w-24 !text-3xl ring-4 ring-ink-900"
+                className="h-24! w-24! text-3xl! ring-4 ring-ink-900"
               />
               <div className="pb-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <h1 className="text-2xl font-extrabold">Alex Rivera</h1>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-gold-300/25 to-gold-500/10 px-3 py-1 text-xs font-bold text-gold-200 ring-1 ring-gold-300/30">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-linear-to-r/srgb from-gold-300/25 to-gold-500/10 px-3 py-1 text-xs font-bold text-gold-200 ring-1 ring-gold-300/30">
                     <Crown className="h-3.5 w-3.5" /> Unlimited
                   </span>
                 </div>
@@ -112,7 +112,7 @@ export default function AccountPage() {
             </div>
 
             {/* loyalty card */}
-            <div className="w-full max-w-sm rounded-2xl border border-white/[0.08] bg-ink-850/80 p-4 backdrop-blur lg:w-80">
+            <div className="w-full max-w-sm rounded-2xl border border-white/8 bg-ink-850/80 p-4 backdrop-blur-sm lg:w-80">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2 text-sm font-semibold text-white">
                   <Trophy className="h-4 w-4 text-gold-300" /> {LOYALTY.tier} tier
@@ -123,7 +123,7 @@ export default function AccountPage() {
               </div>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-ink-700">
                 <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-gold-400 to-gold-200"
+                  className="h-full rounded-full bg-linear-to-r/srgb from-gold-400 to-gold-200"
                   initial={{ width: 0 }}
                   animate={{ width: `${(LOYALTY.points / LOYALTY.threshold) * 100}%` }}
                   transition={{ duration: 1, ease: 'easeOut' }}
@@ -148,7 +148,7 @@ export default function AccountPage() {
       </div>
 
       {/* ---------- Tabs ---------- */}
-      <div className="sticky top-16 z-20 mt-8 flex gap-1 overflow-x-auto border-b border-white/[0.08] bg-ink-950/80 backdrop-blur-xl">
+      <div className="sticky top-16 z-20 mt-8 flex gap-1 overflow-x-auto border-b border-white/8 bg-ink-950/80 backdrop-blur-xl">
         {tabs.map((tb) => (
           <button
             key={tb.key}
@@ -198,7 +198,7 @@ export default function AccountPage() {
 
 function HeaderAction({ icon: Icon, label }: { icon: typeof Pencil; label: string }) {
   return (
-    <button className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-black/30 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur transition-colors hover:bg-black/50">
+    <button className="inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-black/30 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/50">
       <Icon className="h-3.5 w-3.5" /> {label}
     </button>
   )
@@ -216,7 +216,7 @@ function StatTile({
   suffix?: string
 }) {
   return (
-    <div className="rounded-2xl border border-white/[0.06] bg-ink-850/50 p-4">
+    <div className="rounded-2xl border border-white/6 bg-ink-850/50 p-4">
       <Icon className="h-5 w-5 text-gold-300" />
       <CountUp
         value={value}
@@ -272,11 +272,11 @@ function NextUpCard({ booking }: { booking: Booking }) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      className="relative overflow-hidden rounded-3xl border border-white/[0.08]"
+      className="relative overflow-hidden rounded-3xl border border-white/8"
     >
       <div className="absolute inset-0">
         <Backdrop film={film} />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/85 to-ink-950/40" />
+        <div className="absolute inset-0 bg-linear-to-r/srgb from-ink-950 via-ink-950/85 to-ink-950/40" />
       </div>
 
       <div className="relative grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -323,7 +323,7 @@ function NextUpCard({ booking }: { booking: Booking }) {
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cinema.address)}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/[0.12]"
+              className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/6 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/12"
             >
               <Navigation className="h-4 w-4" /> Directions
             </a>
@@ -331,7 +331,7 @@ function NextUpCard({ booking }: { booking: Booking }) {
         </div>
 
         {/* wallet pass */}
-        <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur lg:flex-col">
+        <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur-sm lg:flex-col">
           <QrPlaceholder seed={booking.ref} className="h-28 w-28" />
           <div className="lg:text-center">
             <p className="text-[11px] uppercase tracking-wider text-neutral-400">Scan at door</p>
@@ -387,7 +387,7 @@ function InsightsPanel({ bookings }: { bookings: Booking[] }) {
 
   return (
     <aside className="space-y-4">
-      <div className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-5">
+      <div className="rounded-2xl border border-white/6 bg-ink-850/60 p-5">
         <h3 className="flex items-center gap-2 text-sm font-bold">
           <BarChart3 className="h-4 w-4 text-gold-300" /> Your taste in film
         </h3>
@@ -398,7 +398,7 @@ function InsightsPanel({ bookings }: { bookings: Booking[] }) {
               <span className="w-20 shrink-0 text-neutral-300">{genre}</span>
               <span className="h-2 flex-1 overflow-hidden rounded-full bg-ink-700">
                 <motion.span
-                  className="block h-full rounded-full bg-gradient-to-r from-crimson-500 to-gold-300"
+                  className="block h-full rounded-full bg-linear-to-r/srgb from-crimson-500 to-gold-300"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${(count / maxGenre) * 100}%` }}
                   viewport={{ once: true }}
@@ -410,7 +410,7 @@ function InsightsPanel({ bookings }: { bookings: Booking[] }) {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-5">
+      <div className="rounded-2xl border border-white/6 bg-ink-850/60 p-5">
         <h3 className="mb-3 text-sm font-bold">At a glance</h3>
         <dl className="space-y-3 text-sm">
           <div className="flex items-center justify-between">
@@ -458,13 +458,13 @@ function WatchlistTab({ ids }: { ids: string[] }) {
         <div key={film!.id} className="group relative">
           <Link
             to={`/film/${film!.slug}`}
-            className="block aspect-[2/3] overflow-hidden rounded-xl border border-white/[0.06] shadow-card transition-transform group-hover:-translate-y-1"
+            className="block aspect-2/3 overflow-hidden rounded-xl border border-white/6 shadow-card transition-transform group-hover:-translate-y-1"
           >
             <Poster film={film!} />
           </Link>
           <button
             onClick={() => toggleWatchlist(film!.id)}
-            className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-black/60 text-crimson-400 opacity-0 backdrop-blur transition-opacity hover:bg-black/80 group-hover:opacity-100"
+            className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-black/60 text-crimson-400 opacity-0 backdrop-blur-sm transition-opacity hover:bg-black/80 group-hover:opacity-100"
             aria-label="Remove from watchlist"
             title="Remove from watchlist"
           >
@@ -494,7 +494,7 @@ function BookingRow({ booking, past }: { booking: Booking; past?: boolean }) {
   if (!film || !cinema) return null
 
   return (
-    <div className="flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-850/60 p-4 sm:flex-row sm:items-center">
+    <div className="flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/6 bg-ink-850/60 p-4 sm:flex-row sm:items-center">
       <Link to={`/film/${film.slug}`} className="h-28 w-20 shrink-0 overflow-hidden rounded-xl">
         <Poster film={film} />
       </Link>
@@ -530,12 +530,12 @@ function BookingRow({ booking, past }: { booking: Booking; past?: boolean }) {
       <div className="flex items-center gap-2">
         {past ? (
           <>
-            <button className="inline-flex items-center gap-1.5 rounded-md border border-white/15 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/[0.06]">
+            <button className="inline-flex items-center gap-1.5 rounded-md border border-white/15 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/6">
               <Star className="h-3.5 w-3.5 text-gold-300" /> Rate
             </button>
             <Link
               to={`/film/${film.slug}`}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/[0.12]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/6 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/12"
             >
               Book again <ChevronRight className="h-3.5 w-3.5" />
             </Link>
@@ -558,13 +558,13 @@ function EmptyState({
   body: string
 }) {
   return (
-    <div className="grid place-items-center rounded-2xl border border-white/[0.06] bg-ink-850/60 py-20 text-center">
+    <div className="grid place-items-center rounded-2xl border border-white/6 bg-ink-850/60 py-20 text-center">
       <Icon className="mb-3 h-10 w-10 text-ink-500" />
       <p className="text-lg font-semibold text-white">{title}</p>
       <p className="mt-1 max-w-sm text-sm text-neutral-400">{body}</p>
       <Link
         to="/browse"
-        className="mt-5 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-5 py-2.5 text-sm font-bold text-ink-950"
+        className="mt-5 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-5 py-2.5 text-sm font-bold text-ink-950"
       >
         Find a film
       </Link>
@@ -581,7 +581,7 @@ function Preferences() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <section className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6">
+      <section className="rounded-2xl border border-white/6 bg-ink-850/60 p-6">
         <h3 className="flex items-center gap-2 text-lg font-bold">
           <Heart className="h-5 w-5 text-crimson-400" /> Favourite genres
         </h3>
@@ -595,7 +595,7 @@ function Preferences() {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6">
+      <section className="rounded-2xl border border-white/6 bg-ink-850/60 p-6">
         <h3 className="flex items-center gap-2 text-lg font-bold">
           <Bell className="h-5 w-5 text-gold-300" /> Notifications
         </h3>
@@ -607,7 +607,7 @@ function Preferences() {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6">
+      <section className="rounded-2xl border border-white/6 bg-ink-850/60 p-6">
         <h3 className="flex items-center gap-2 text-lg font-bold">
           <Globe className="h-5 w-5 text-gold-300" /> Region &amp; language
         </h3>
@@ -629,7 +629,7 @@ function Preferences() {
         </div>
       </section>
 
-      <section className="flex flex-col justify-between rounded-2xl border border-gold-300/20 bg-gradient-to-br from-gold-500/[0.08] to-transparent p-6">
+      <section className="flex flex-col justify-between rounded-2xl border border-gold-300/20 bg-linear-to-br/srgb from-gold-500/8 to-transparent p-6">
         <div className="flex items-center gap-3">
           <span className="grid h-12 w-12 place-items-center rounded-xl bg-gold-300/15 text-gold-300">
             <FilmIcon className="h-6 w-6" />
@@ -641,7 +641,7 @@ function Preferences() {
         </div>
         <Link
           to="/offers"
-          className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-md border border-white/15 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/[0.06]"
+          className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-md border border-white/15 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/6"
         >
           Manage membership <ChevronRight className="h-4 w-4" />
         </Link>
@@ -654,7 +654,7 @@ function Toggle({ label, on, onClick }: { label: string; on: boolean; onClick: (
   return (
     <button
       onClick={onClick}
-      className="flex w-full items-center justify-between rounded-xl px-2 py-2.5 text-left text-sm text-white transition-colors hover:bg-white/[0.04]"
+      className="flex w-full items-center justify-between rounded-xl px-2 py-2.5 text-left text-sm text-white transition-colors hover:bg-white/4"
     >
       <span>{label}</span>
       <span

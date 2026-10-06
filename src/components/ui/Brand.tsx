@@ -16,7 +16,7 @@ const FORMAT_META: Record<
   '4DX': { icon: Sparkles, className: 'tracking-[0.16em]' },
   Premium: { icon: Armchair, className: 'tracking-[0.12em]' },
   '35mm': { icon: Film, className: 'tracking-[0.12em]' },
-  Standard: { icon: Clapperboard, className: 'tracking-[0.1em]' },
+  Standard: { icon: Clapperboard, className: 'tracking-widest' },
 }
 
 export function FormatLogo({
@@ -33,7 +33,7 @@ export function FormatLogo({
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/[0.04] font-bold uppercase text-white',
+        'inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-white/4 font-bold uppercase text-white',
         size === 'sm' ? 'px-2 py-0.5 text-[10px]' : 'px-2.5 py-1 text-xs',
         meta.className,
         className,
@@ -53,7 +53,7 @@ const STUDIOS: { label: string; className: string }[] = [
   { label: 'WARNER BROS.', className: 'font-serif tracking-tight' },
   { label: 'UNIVERSAL', className: 'tracking-[0.3em] font-light' },
   { label: 'PARAMOUNT', className: 'tracking-[0.25em]' },
-  { label: 'A24', className: 'font-black text-base ring-1 ring-white/40 rounded px-1.5' },
+  { label: 'A24', className: 'font-black text-base ring-1 ring-white/40 rounded-sm px-1.5' },
   { label: 'LIONSGATE', className: 'tracking-[0.2em] font-semibold' },
   { label: 'FOCUS FEATURES', className: 'tracking-[0.15em] font-light' },
   { label: 'NEON', className: 'font-black tracking-tight' },

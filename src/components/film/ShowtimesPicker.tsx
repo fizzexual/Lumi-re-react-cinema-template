@@ -53,7 +53,7 @@ export function ShowtimesPicker({ filmId }: { filmId: string }) {
                 'flex min-w-[68px] shrink-0 flex-col items-center rounded-xl border px-3 py-2.5 transition-all',
                 active
                   ? 'border-gold-300/60 bg-gold-300/15 text-gold-100'
-                  : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25',
+                  : 'border-white/10 bg-white/3 text-slate-300 hover:border-white/25',
               )}
             >
               <span className="text-[11px] font-semibold uppercase tracking-wide">
@@ -76,7 +76,7 @@ export function ShowtimesPicker({ filmId }: { filmId: string }) {
 
       {/* Cinemas + times */}
       {byCinema.length === 0 ? (
-        <p className="rounded-2xl border border-white/[0.06] bg-ink-850/60 px-5 py-8 text-center text-sm text-slate-400">
+        <p className="rounded-2xl border border-white/6 bg-ink-850/60 px-5 py-8 text-center text-sm text-slate-400">
           No screenings on this date. Try another day.
         </p>
       ) : (
@@ -84,7 +84,7 @@ export function ShowtimesPicker({ filmId }: { filmId: string }) {
           {byCinema.map(({ cinema, times }) => (
             <div
               key={cinema.id}
-              className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-5"
+              className="rounded-2xl border border-white/6 bg-ink-850/60 p-5"
             >
               <div className="mb-4 flex items-start justify-between gap-3">
                 <div>
@@ -156,7 +156,7 @@ function ShowtimeChip({
   return (
     <button
       onClick={onPick}
-      className="group/chip relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-left transition-all hover:-translate-y-0.5 hover:border-gold-300/50 hover:bg-gold-300/[0.06]"
+      className="group/chip relative overflow-hidden rounded-xl border border-white/10 bg-white/3 px-4 py-2.5 text-left transition-all hover:-translate-y-0.5 hover:border-gold-300/50 hover:bg-gold-300/6"
     >
       <div className="flex items-center gap-3">
         <span className="text-base font-bold text-white">{showtime.time}</span>

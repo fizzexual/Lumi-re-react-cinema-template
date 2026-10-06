@@ -65,8 +65,8 @@ export default function CinemasPage() {
                 className={cn(
                   'w-full rounded-2xl border p-5 text-left transition-all',
                   isSelected
-                    ? 'border-gold-300/50 bg-gold-300/[0.06]'
-                    : 'border-white/[0.06] bg-ink-850/60 hover:border-white/20',
+                    ? 'border-gold-300/50 bg-gold-300/6'
+                    : 'border-white/6 bg-ink-850/60 hover:border-white/20',
                 )}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -89,7 +89,7 @@ export default function CinemasPage() {
                   {c.formats.map((f) => (
                     <span
                       key={f}
-                      className="rounded-full bg-white/[0.05] px-2 py-0.5 text-[10px] font-medium text-slate-300"
+                      className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-medium text-slate-300"
                     >
                       {f}
                     </span>
@@ -106,7 +106,7 @@ export default function CinemasPage() {
         {/* Detail panel */}
         <div className="space-y-6">
           {/* Map placeholder */}
-          <div className="grain relative h-56 overflow-hidden rounded-3xl border border-white/[0.06]">
+          <div className="grain relative h-56 overflow-hidden rounded-3xl border border-white/6">
             <div
               className="absolute inset-0"
               style={{
@@ -136,7 +136,7 @@ export default function CinemasPage() {
           </div>
 
           {/* Info card */}
-          <div className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6">
+          <div className="rounded-2xl border border-white/6 bg-ink-850/60 p-6">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
                 <h2 className="text-xl font-bold">{selected.name}</h2>
@@ -145,13 +145,13 @@ export default function CinemasPage() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <button className="inline-flex items-center gap-1.5 rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/[0.06]">
+                <button className="inline-flex items-center gap-1.5 rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/6">
                   <Navigation className="h-4 w-4" /> Directions
                 </button>
                 <button
                   onClick={() => setCinema(selected.id)}
                   disabled={selected.id === cinemaId}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-4 py-2 text-sm font-bold text-ink-950 disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-4 py-2 text-sm font-bold text-ink-950 disabled:opacity-50"
                 >
                   {selected.id === cinemaId ? 'Your local' : 'Make my local'}
                 </button>
@@ -187,7 +187,7 @@ export default function CinemasPage() {
           </div>
 
           {/* Today's showtimes */}
-          <div className="rounded-2xl border border-white/[0.06] bg-ink-850/60 p-6">
+          <div className="rounded-2xl border border-white/6 bg-ink-850/60 p-6">
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">
               <Clapperboard className="h-5 w-5 text-gold-300" /> Showing today
             </h3>
@@ -200,7 +200,7 @@ export default function CinemasPage() {
                 {todaysFilms.map(({ film, times }) => (
                   <div
                     key={film.id}
-                    className="flex flex-wrap items-center gap-3 border-b border-white/[0.04] pb-4 last:border-0 last:pb-0"
+                    className="flex flex-wrap items-center gap-3 border-b border-white/4 pb-4 last:border-0 last:pb-0"
                   >
                     <span className="min-w-[160px] flex-1 text-sm font-semibold text-white">
                       {film.title}
@@ -213,7 +213,7 @@ export default function CinemasPage() {
                             startBooking(s.filmId, s.cinemaId, s.id)
                             navigate(`/seats/${s.id}`)
                           }}
-                          className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:border-gold-300/50 hover:bg-gold-300/10"
+                          className="rounded-lg border border-white/10 bg-white/3 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:border-gold-300/50 hover:bg-gold-300/10"
                         >
                           {s.time}
                           <span className="ml-1.5 text-[10px] font-normal text-slate-400">

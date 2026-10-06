@@ -15,7 +15,7 @@ export function ScoreChip({
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-full bg-black/70 font-semibold text-white ring-1 ring-white/15 backdrop-blur',
+        'inline-flex items-center gap-1.5 rounded-full bg-black/70 font-semibold text-white ring-1 ring-white/15 backdrop-blur-sm',
         size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-2.5 py-1 text-sm',
       )}
     >

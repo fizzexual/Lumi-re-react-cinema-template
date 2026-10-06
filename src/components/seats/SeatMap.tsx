@@ -115,17 +115,17 @@ export function SeatMap({
       {/* Toolbar */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/[0.1] px-3 py-1.5 font-medium text-emerald-300">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1.5 font-medium text-emerald-300">
             <span className="h-1.5 w-1.5 animate-glow-pulse rounded-full bg-emerald-400" />
             {seatsLeft} seats left
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.05] px-3 py-1.5 font-medium text-neutral-300">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 font-medium text-neutral-300">
             <Eye className="h-3.5 w-3.5" /> {viewers} people viewing
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1">
+          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/4 p-1">
             <button
               onClick={() => setParty((p) => Math.max(1, p - 1))}
               className="grid h-7 w-7 place-items-center rounded-full text-white hover:bg-white/10"
@@ -146,7 +146,7 @@ export function SeatMap({
           </div>
           <button
             onClick={bestAvailable}
-            className="inline-flex items-center gap-1.5 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-4 py-2 text-xs font-bold text-ink-950 shadow-glow transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-1.5 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-4 py-2 text-xs font-bold text-ink-950 shadow-glow transition-transform hover:-translate-y-0.5"
           >
             <Wand2 className="h-3.5 w-3.5" /> Best available
           </button>
@@ -206,17 +206,17 @@ export function SeatMap({
                       onFocus={() => !isTaken && setHovered({ id, tier })}
                       style={{ transform: `translateY(${dy}px)` }}
                       className={cn(
-                        'relative grid h-6 w-6 place-items-center rounded-t-lg rounded-b-sm border transition-colors sm:h-7 sm:w-7',
+                        'relative grid h-6 w-6 place-items-center rounded-t-lg rounded-b-xs border transition-colors sm:h-7 sm:w-7',
                         i === mid && 'ml-5',
                         isTaken
                           ? 'cursor-not-allowed border-transparent bg-ink-700/60'
                           : isSelected
-                          ? 'border-crimson-400 bg-gradient-to-b from-crimson-500 to-crimson-600 shadow-glow-crimson'
+                          ? 'border-crimson-400 bg-linear-to-b/srgb from-crimson-500 to-crimson-600 shadow-glow-crimson'
                           : isWheel
                           ? 'border-sky-400/40 bg-sky-500/15 hover:border-sky-300 hover:bg-sky-500/30'
                           : tier === 'premium'
                           ? 'border-violet-400/40 bg-violet-500/15 hover:border-violet-300 hover:bg-violet-500/30'
-                          : 'border-white/15 bg-white/[0.06] hover:border-gold-300/70 hover:bg-gold-300/20',
+                          : 'border-white/15 bg-white/6 hover:border-gold-300/70 hover:bg-gold-300/20',
                         !isTaken && 'hover:z-10 hover:scale-110',
                         justTaken === id && 'animate-pulse-ring',
                       )}
@@ -255,11 +255,11 @@ export function SeatMap({
 
       {/* Legend */}
       <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-neutral-300">
-        <LegendItem className="border-white/15 bg-white/[0.06]" label={`Standard · ${money(stdPrice)}`} />
+        <LegendItem className="border-white/15 bg-white/6" label={`Standard · ${money(stdPrice)}`} />
         <LegendItem className="border-violet-400/40 bg-violet-500/20" label={`Premium · ${money(premPrice)}`} />
         <LegendItem className="border-sky-400/40 bg-sky-500/20" label="Accessible" icon />
         <LegendItem
-          className="border-crimson-400 bg-gradient-to-b from-crimson-500 to-crimson-600"
+          className="border-crimson-400 bg-linear-to-b/srgb from-crimson-500 to-crimson-600"
           label="Selected"
         />
         <LegendItem className="border-transparent bg-ink-700/60" label="Taken" />
@@ -279,7 +279,7 @@ function LegendItem({
 }) {
   return (
     <span className="flex items-center gap-2">
-      <span className={cn('grid h-5 w-5 place-items-center rounded-t-lg rounded-b-sm border', className)}>
+      <span className={cn('grid h-5 w-5 place-items-center rounded-t-lg rounded-b-xs border', className)}>
         {icon && <Accessibility className="h-3 w-3 text-sky-300" />}
       </span>
       {label}

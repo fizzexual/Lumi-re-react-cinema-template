@@ -73,7 +73,7 @@ export default function ConfirmationPage() {
         transition={{ delay: 0.25 }}
         className="mx-auto mt-10 max-w-xl"
       >
-        <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-ink-850 shadow-card">
+        <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-ink-850 shadow-card">
           {/* Top: film + showtime */}
           <div className="grain relative grid grid-cols-[1fr_auto] gap-4 p-6">
             <div>
@@ -110,7 +110,7 @@ export default function ConfirmationPage() {
           </div>
 
           {/* Line items */}
-          <div className="border-t border-white/[0.06] px-6 py-4">
+          <div className="border-t border-white/6 px-6 py-4">
             <ul className="space-y-1.5 text-sm">
               {booking.seats.map((s) => (
                 <li key={s.id} className="flex justify-between text-slate-300">
@@ -122,7 +122,7 @@ export default function ConfirmationPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-3 flex justify-between border-t border-white/[0.06] pt-3">
+            <div className="mt-3 flex justify-between border-t border-white/6 pt-3">
               <span className="font-semibold text-white">Total paid</span>
               <span className="font-extrabold text-gold-200">
                 {money(booking.totalGBP)}
@@ -135,13 +135,13 @@ export default function ConfirmationPage() {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/account"
-            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-gold-300 to-gold-500 py-3.5 text-sm font-bold text-ink-950 shadow-glow"
+            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 py-3.5 text-sm font-bold text-ink-950 shadow-glow"
           >
             View my bookings <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             to="/browse"
-            className="flex flex-1 items-center justify-center gap-2 rounded-md border border-white/15 py-3.5 text-sm font-semibold text-white hover:bg-white/[0.06]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-md border border-white/15 py-3.5 text-sm font-semibold text-white hover:bg-white/6"
           >
             Book another film
           </Link>

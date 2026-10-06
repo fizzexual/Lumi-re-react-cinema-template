@@ -47,7 +47,7 @@ export function PosterArt({
       <div className="absolute inset-0" style={{ background: sheen() }} />
 
       {/* Bottom legibility scrim */}
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-950 via-ink-950/70 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t/srgb from-ink-950 via-ink-950/70 to-transparent" />
 
       {withText && (
         <div className="absolute inset-x-0 bottom-0 p-4">

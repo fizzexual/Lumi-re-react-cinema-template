@@ -71,13 +71,13 @@ export function Navbar() {
           'fixed inset-x-0 top-0 z-50 transition-all duration-300',
           scrolled
             ? 'bg-ink-950/85 backdrop-blur-xl'
-            : 'bg-gradient-to-b from-ink-950/80 via-ink-950/30 to-transparent',
+            : 'bg-linear-to-b/srgb from-ink-950/80 via-ink-950/30 to-transparent',
         )}
       >
         <div className="flex h-16 items-center gap-3 px-4 sm:px-8 lg:px-12 xl:px-[3.75vw] 2xl:px-16">
           {/* Wordmark */}
           <Link to="/" className="group flex shrink-0 items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-crimson-500 to-crimson-600 text-white shadow-glow-crimson">
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br/srgb from-crimson-500 to-crimson-600 text-white shadow-glow-crimson">
               <Clapperboard className="h-5 w-5" />
             </span>
             <span className="hidden font-display text-lg font-extrabold uppercase tracking-tight text-white sm:block">
@@ -96,7 +96,7 @@ export function Navbar() {
                   cn(
                     'rounded-full px-3.5 py-2 text-sm font-medium transition-colors',
                     isActive
-                      ? 'bg-white/[0.08] text-white'
+                      ? 'bg-white/8 text-white'
                       : 'text-slate-300 hover:text-white',
                   )
                 }
@@ -122,11 +122,11 @@ export function Navbar() {
           {/* Search */}
           <button
             onClick={() => setSearchOpen(true)}
-            className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-2 pl-3 pr-2.5 text-sm text-slate-400 transition-colors hover:border-white/25 hover:text-white sm:flex"
+            className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/4 py-2 pl-3 pr-2.5 text-sm text-slate-400 transition-colors hover:border-white/25 hover:text-white sm:flex"
           >
             <Search className="h-4 w-4" />
             <span className="hidden md:inline">Search</span>
-            <kbd className="hidden rounded border border-white/15 bg-white/5 px-1.5 py-0.5 text-[10px] font-medium text-slate-400 md:inline">
+            <kbd className="hidden rounded-sm border border-white/15 bg-white/5 px-1.5 py-0.5 text-[10px] font-medium text-slate-400 md:inline">
               ⌘K
             </kbd>
           </button>
@@ -141,7 +141,7 @@ export function Navbar() {
           {/* Account */}
           <Link
             to="/account"
-            className="hidden h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-slate-300 transition-colors hover:border-white/25 hover:text-white sm:grid"
+            className="hidden h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/4 text-slate-300 transition-colors hover:border-white/25 hover:text-white sm:grid"
             aria-label="Account"
           >
             <User className="h-4.5 w-4.5" />
@@ -176,7 +176,7 @@ export function Navbar() {
                   className={({ isActive }) =>
                     cn(
                       'block rounded-xl px-4 py-3 text-base font-medium',
-                      isActive ? 'bg-white/[0.08] text-white' : 'text-slate-300',
+                      isActive ? 'bg-white/8 text-white' : 'text-slate-300',
                     )
                   }
                 >
@@ -220,7 +220,7 @@ function LocationPicker({
     <div className="relative" ref={ref}>
       <button
         onClick={onToggle}
-        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-2 pl-3 pr-2.5 text-sm transition-colors hover:border-white/25"
+        className="flex items-center gap-2 rounded-full border border-white/10 bg-white/4 py-2 pl-3 pr-2.5 text-sm transition-colors hover:border-white/25"
       >
         <MapPin className="h-4 w-4 text-gold-300" />
         <span className="hidden max-w-[120px] truncate text-left text-white md:block">
@@ -244,8 +244,8 @@ function LocationPicker({
                 onClose()
               }}
               className={cn(
-                'flex w-full items-start gap-3 rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-white/[0.06]',
-                c.id === cinemaId && 'bg-white/[0.05]',
+                'flex w-full items-start gap-3 rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-white/6',
+                c.id === cinemaId && 'bg-white/5',
               )}
             >
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />
@@ -282,7 +282,7 @@ function LocaleMenu({
     <div className="relative" ref={ref}>
       <button
         onClick={onToggle}
-        className="hidden h-9 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 text-sm text-slate-300 transition-colors hover:border-white/25 hover:text-white sm:flex"
+        className="hidden h-9 items-center gap-1.5 rounded-full border border-white/10 bg-white/4 px-3 text-sm text-slate-300 transition-colors hover:border-white/25 hover:text-white sm:flex"
       >
         <Globe className="h-4 w-4" />
         <span className="font-medium uppercase">{lang}</span>
@@ -304,7 +304,7 @@ function LocaleMenu({
                   'flex flex-col items-center gap-1 rounded-xl px-2 py-2 text-xs transition-colors',
                   lang === l.code
                     ? 'bg-gold-300/15 text-gold-200 ring-1 ring-gold-300/40'
-                    : 'text-slate-300 hover:bg-white/[0.06]',
+                    : 'text-slate-300 hover:bg-white/6',
                 )}
               >
                 <span className="text-lg">{l.flag}</span>
@@ -325,7 +325,7 @@ function LocaleMenu({
                   'rounded-xl px-2 py-2 text-sm font-semibold transition-colors',
                   currency === c.code
                     ? 'bg-gold-300/15 text-gold-200 ring-1 ring-gold-300/40'
-                    : 'text-slate-300 hover:bg-white/[0.06]',
+                    : 'text-slate-300 hover:bg-white/6',
                 )}
               >
                 {c.symbol} {c.code}

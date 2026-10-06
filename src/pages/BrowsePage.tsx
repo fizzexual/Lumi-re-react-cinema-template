@@ -121,13 +121,13 @@ export default function BrowsePage() {
 
       {/* Toolbar */}
       <div className="sticky top-16 z-30 -mx-2 mb-6 flex flex-col gap-3 rounded-xl bg-ink-950/80 px-2 py-3 backdrop-blur-xl sm:flex-row sm:items-center">
-        <div className="flex flex-1 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5">
+        <div className="flex flex-1 items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-2.5">
           <Search className="h-4 w-4 shrink-0 text-neutral-400" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by title, director, cast or genre…"
-            className="w-full bg-transparent text-sm text-white outline-none placeholder:text-neutral-500"
+            className="w-full bg-transparent text-sm text-white outline-hidden placeholder:text-neutral-500"
           />
           {query && (
             <button onClick={() => setQuery('')} aria-label="Clear">
@@ -138,7 +138,7 @@ export default function BrowsePage() {
 
         <div className="flex items-center gap-2">
           {/* Status quick pills */}
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 md:flex">
+          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/4 p-1 md:flex">
             {(['all', 'now-showing', 'coming-soon'] as StatusFilter[]).map((s) => (
               <button
                 key={s}
@@ -158,8 +158,8 @@ export default function BrowsePage() {
             className={cn(
               'flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-medium transition-colors',
               filtersOpen || activeCount > 0
-                ? 'border-white/30 bg-white/[0.08] text-white'
-                : 'border-white/10 bg-white/[0.04] text-neutral-300 hover:text-white',
+                ? 'border-white/30 bg-white/8 text-white'
+                : 'border-white/10 bg-white/4 text-neutral-300 hover:text-white',
             )}
           >
             <SlidersHorizontal className="h-4 w-4" />
@@ -172,12 +172,12 @@ export default function BrowsePage() {
             <ChevronDown className={cn('h-3.5 w-3.5 transition-transform', filtersOpen && 'rotate-180')} />
           </button>
 
-          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-2 py-1">
+          <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/4 px-2 py-1">
             <span className="pl-2 text-xs text-neutral-400">Sort</span>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
-              className="cursor-pointer rounded-full bg-transparent py-1.5 pr-2 text-sm font-medium text-white outline-none [&>option]:bg-ink-800"
+              className="cursor-pointer rounded-full bg-transparent py-1.5 pr-2 text-sm font-medium text-white outline-hidden [&>option]:bg-ink-800"
             >
               {sorts.map((s) => (
                 <option key={s.key} value={s.key}>
@@ -194,7 +194,7 @@ export default function BrowsePage() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="mb-8 overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-850/60"
+          className="mb-8 overflow-hidden rounded-2xl border border-white/6 bg-ink-850/60"
         >
           <div className="grid gap-6 p-6 md:grid-cols-2 lg:grid-cols-4">
             <FilterGroup label="Genre">
@@ -307,7 +307,7 @@ function FilteredResults({
 }) {
   if (results.length === 0) {
     return (
-      <div className="grid place-items-center rounded-2xl border border-white/[0.06] bg-ink-850/60 py-24 text-center">
+      <div className="grid place-items-center rounded-2xl border border-white/6 bg-ink-850/60 py-24 text-center">
         <FilmIcon className="mb-3 h-10 w-10 text-ink-500" />
         <p className="text-lg font-semibold text-white">No films match those filters</p>
         <p className="mt-1 text-sm text-neutral-400">Try loosening a filter or two.</p>

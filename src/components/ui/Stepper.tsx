@@ -19,7 +19,7 @@ export function Stepper({ current }: { current: number }) {
                   'grid h-8 w-8 place-items-center rounded-full text-sm font-bold transition-colors',
                   done && 'bg-gold-400 text-ink-950',
                   active && 'bg-white text-ink-950 ring-4 ring-gold-300/30',
-                  !done && !active && 'bg-white/[0.06] text-slate-400',
+                  !done && !active && 'bg-white/6 text-slate-400',
                 )}
               >
                 {done ? <Check className="h-4 w-4" /> : step}

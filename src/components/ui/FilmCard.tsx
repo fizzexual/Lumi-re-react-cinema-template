@@ -22,7 +22,7 @@ export function FilmCard({
     <Link
       to={`/film/${film.slug}`}
       className={cn(
-        'group/card relative block w-full overflow-hidden rounded-md bg-ink-850 shadow-card transition-all duration-300 hover:z-20 hover:scale-[1.06] hover:shadow-card-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70',
+        'group/card relative block w-full overflow-hidden rounded-md bg-ink-850 shadow-card transition-all duration-300 hover:z-20 hover:scale-[1.06] hover:shadow-card-hover focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/70',
         className,
       )}
     >
@@ -30,7 +30,7 @@ export function FilmCard({
         <Backdrop film={film} />
 
         {/* legibility scrim */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-black/10" />
+        <div className="absolute inset-0 bg-linear-to-t/srgb from-black/95 via-black/25 to-black/10" />
 
         {/* top meta */}
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-2.5">
@@ -39,7 +39,7 @@ export function FilmCard({
         </div>
 
         {film.trending && film.status === 'now-showing' && (
-          <span className="absolute right-2.5 top-9 rounded-sm bg-crimson-600 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
+          <span className="absolute right-2.5 top-9 rounded-xs bg-crimson-600 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
             Trending
           </span>
         )}
@@ -55,7 +55,7 @@ export function FilmCard({
         </div>
 
         {/* hover action bar */}
-        <div className="absolute inset-x-0 bottom-0 translate-y-3 bg-gradient-to-t from-black via-black/85 to-transparent px-3 pb-3 pt-10 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <div className="absolute inset-x-0 bottom-0 translate-y-3 bg-linear-to-t/srgb from-black via-black/85 to-transparent px-3 pb-3 pt-10 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
           <div className="mb-1.5">
             <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
               {film.genres.slice(0, 2).join(' · ')}

@@ -74,7 +74,7 @@ export default function CheckoutPage() {
           <p className="mt-2 text-slate-400">Pick a film and some seats to check out.</p>
           <Link
             to="/browse"
-            className="mt-5 inline-block rounded-md bg-gradient-to-b from-gold-300 to-gold-500 px-6 py-3 text-sm font-bold text-ink-950"
+            className="mt-5 inline-block rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 px-6 py-3 text-sm font-bold text-ink-950"
           >
             Browse films
           </Link>
@@ -138,7 +138,7 @@ export default function CheckoutPage() {
                 .map((s) => (
                   <div
                     key={s.id}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3"
+                    className="flex items-center justify-between gap-3 rounded-xl border border-white/6 bg-white/2 px-4 py-3"
                   >
                     <div className="flex items-center gap-3">
                       <span className="grid h-9 w-9 place-items-center rounded-lg bg-gold-300/15 text-sm font-bold text-gold-200">
@@ -168,7 +168,7 @@ export default function CheckoutPage() {
                         onChange={(e) =>
                           setSeatTicket(s.id, e.target.value as TicketTier)
                         }
-                        className="cursor-pointer rounded-lg border border-white/10 bg-ink-800 px-3 py-1.5 text-sm font-medium text-white outline-none focus:border-gold-300/50 [&>option]:bg-ink-800"
+                        className="cursor-pointer rounded-lg border border-white/10 bg-ink-800 px-3 py-1.5 text-sm font-medium text-white outline-hidden focus:border-gold-300/50 [&>option]:bg-ink-800"
                       >
                         {TIERS.map((tier) => (
                           <option key={tier} value={tier}>
@@ -250,8 +250,8 @@ export default function CheckoutPage() {
 
         {/* Order summary */}
         <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-ink-850/70">
-            <div className="flex gap-3 border-b border-white/[0.06] p-4">
+          <div className="overflow-hidden rounded-2xl border border-white/6 bg-ink-850/70">
+            <div className="flex gap-3 border-b border-white/6 p-4">
               <div className="h-24 w-16 shrink-0 overflow-hidden rounded-lg">
                 <Poster film={film} />
               </div>
@@ -268,9 +268,9 @@ export default function CheckoutPage() {
             </div>
 
             {/* Promo */}
-            <div className="border-b border-white/[0.06] p-4">
+            <div className="border-b border-white/6 p-4">
               {promoApplied ? (
-                <div className="flex items-center justify-between rounded-xl bg-emerald-400/[0.08] px-3 py-2.5 text-sm">
+                <div className="flex items-center justify-between rounded-xl bg-emerald-400/8 px-3 py-2.5 text-sm">
                   <span className="flex items-center gap-2 font-medium text-emerald-300">
                     <CheckCircle2 className="h-4 w-4" /> {PROMO.code} applied
                   </span>
@@ -286,20 +286,20 @@ export default function CheckoutPage() {
                 </div>
               ) : (
                 <div className="flex gap-2">
-                  <div className="flex flex-1 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3">
+                  <div className="flex flex-1 items-center gap-2 rounded-xl border border-white/10 bg-white/3 px-3">
                     <Tag className="h-4 w-4 text-slate-400" />
                     <input
                       value={promoInput}
                       onChange={(e) => setPromoInput(e.target.value.toUpperCase())}
                       placeholder="Promo code"
-                      className="w-full bg-transparent py-2.5 text-sm text-white outline-none placeholder:text-slate-500"
+                      className="w-full bg-transparent py-2.5 text-sm text-white outline-hidden placeholder:text-slate-500"
                     />
                   </div>
                   <button
                     onClick={() =>
                       setPromoApplied(promoInput.trim() === PROMO.code)
                     }
-                    className="rounded-xl bg-white/[0.06] px-4 text-sm font-semibold text-white hover:bg-white/[0.12]"
+                    className="rounded-xl bg-white/6 px-4 text-sm font-semibold text-white hover:bg-white/12"
                   >
                     Apply
                   </button>
@@ -319,7 +319,7 @@ export default function CheckoutPage() {
                 <Row label="Promo discount" value={`–${money(discount)}`} accent />
               )}
               <Row label="Booking fee" value={money(fee)} muted />
-              <div className="mt-2 flex items-center justify-between border-t border-white/[0.06] pt-3">
+              <div className="mt-2 flex items-center justify-between border-t border-white/6 pt-3">
                 <span className="text-base font-bold text-white">Total</span>
                 <span className="text-xl font-extrabold text-gold-200">
                   {money(total)}
@@ -331,7 +331,7 @@ export default function CheckoutPage() {
               <button
                 onClick={pay}
                 disabled={!formValid || processing}
-                className="flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-b from-crimson-500 to-crimson-600 py-3.5 text-sm font-bold text-white shadow-glow-crimson transition-transform enabled:hover:-translate-y-0.5 disabled:opacity-40"
+                className="flex w-full items-center justify-center gap-2 rounded-md bg-linear-to-b/srgb from-crimson-500 to-crimson-600 py-3.5 text-sm font-bold text-white shadow-glow-crimson transition-transform enabled:hover:-translate-y-0.5 disabled:opacity-40"
               >
                 {processing ? (
                   <>
@@ -366,7 +366,7 @@ function Panel({
   children: ReactNode
 }) {
   return (
-    <section className="rounded-2xl border border-white/[0.06] bg-ink-850/50 p-5 sm:p-6">
+    <section className="rounded-2xl border border-white/6 bg-ink-850/50 p-5 sm:p-6">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <h2 className="text-lg font-bold">{title}</h2>
@@ -401,7 +401,7 @@ function Field({
   return (
     <label className="block">
       <span className="mb-1.5 block text-xs font-medium text-slate-400">{label}</span>
-      <span className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 transition-colors focus-within:border-gold-300/50">
+      <span className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/3 px-3.5 transition-colors focus-within:border-gold-300/50">
         {icon}
         <input
           type={type}
@@ -410,7 +410,7 @@ function Field({
           maxLength={maxLength}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="w-full bg-transparent py-2.5 text-sm text-white outline-none placeholder:text-slate-500"
+          className="w-full bg-transparent py-2.5 text-sm text-white outline-hidden placeholder:text-slate-500"
         />
       </span>
     </label>

@@ -40,7 +40,7 @@ export function Footer() {
           {/* Brand + newsletter */}
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-crimson-500 to-crimson-600 text-white">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br/srgb from-crimson-500 to-crimson-600 text-white">
                 <Clapperboard className="h-5 w-5" />
               </span>
               <span className="font-display text-lg font-extrabold uppercase text-white">
@@ -54,16 +54,16 @@ export function Footer() {
 
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="mt-5 flex max-w-sm items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] p-1.5 pl-4"
+              className="mt-5 flex max-w-sm items-center gap-2 rounded-full border border-white/10 bg-white/4 p-1.5 pl-4"
             >
               <input
                 type="email"
                 placeholder="Get showtimes in your inbox"
-                className="w-full bg-transparent text-sm text-white outline-none placeholder:text-slate-500"
+                className="w-full bg-transparent text-sm text-white outline-hidden placeholder:text-slate-500"
               />
               <button
                 type="submit"
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-gradient-to-b from-gold-300 to-gold-500 text-ink-950 transition-transform hover:scale-105"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-linear-to-b/srgb from-gold-300 to-gold-500 text-ink-950 transition-transform hover:scale-105"
                 aria-label="Subscribe"
               >
                 <Send className="h-4 w-4" />
@@ -90,7 +90,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-6 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/6 pt-6 sm:flex-row">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} Lumière Cinema. All rights reserved.
           </p>

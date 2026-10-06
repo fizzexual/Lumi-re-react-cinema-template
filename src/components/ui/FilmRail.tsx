@@ -144,10 +144,10 @@ export function FilmRail({
       {canLeft && (
         <button
           onClick={() => scrollBy(-1)}
-          className="absolute -left-2 bottom-1 top-0 z-20 hidden w-14 place-items-center bg-gradient-to-r from-ink-950 via-ink-950/80 to-transparent text-white opacity-90 transition-opacity hover:opacity-100 lg:grid"
+          className="absolute -left-2 bottom-1 top-0 z-20 hidden w-14 place-items-center bg-linear-to-r/srgb from-ink-950 via-ink-950/80 to-transparent text-white opacity-90 transition-opacity hover:opacity-100 lg:grid"
           aria-label="Scroll left"
         >
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-ink-900/80 ring-1 ring-white/15 backdrop-blur">
+          <span className="grid h-11 w-11 place-items-center rounded-full bg-ink-900/80 ring-1 ring-white/15 backdrop-blur-sm">
             <ChevronLeft className="h-6 w-6" />
           </span>
         </button>
@@ -155,10 +155,10 @@ export function FilmRail({
       {canRight && (
         <button
           onClick={() => scrollBy(1)}
-          className="absolute -right-2 bottom-1 top-0 z-20 hidden w-14 place-items-center bg-gradient-to-l from-ink-950 via-ink-950/80 to-transparent text-white opacity-90 transition-opacity hover:opacity-100 lg:grid"
+          className="absolute -right-2 bottom-1 top-0 z-20 hidden w-14 place-items-center bg-linear-to-l/srgb from-ink-950 via-ink-950/80 to-transparent text-white opacity-90 transition-opacity hover:opacity-100 lg:grid"
           aria-label="Scroll right"
         >
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-ink-900/80 ring-1 ring-white/15 backdrop-blur">
+          <span className="grid h-11 w-11 place-items-center rounded-full bg-ink-900/80 ring-1 ring-white/15 backdrop-blur-sm">
             <ChevronRight className="h-6 w-6" />
           </span>
         </button>

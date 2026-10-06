@@ -57,7 +57,7 @@ export function BookingBar() {
             </div>
             <Link
               to="/checkout"
-              className="flex shrink-0 items-center gap-1.5 rounded-md bg-gradient-to-b from-crimson-500 to-crimson-600 px-5 py-2.5 text-sm font-bold text-white shadow-glow-crimson transition-transform hover:-translate-y-0.5"
+              className="flex shrink-0 items-center gap-1.5 rounded-md bg-linear-to-b/srgb from-crimson-500 to-crimson-600 px-5 py-2.5 text-sm font-bold text-white shadow-glow-crimson transition-transform hover:-translate-y-0.5"
             >
               Checkout <ArrowRight className="h-4 w-4" />
             </Link>

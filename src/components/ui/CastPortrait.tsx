@@ -33,7 +33,7 @@ export function CastPortrait({ name, className }: { name: string; className?: st
 
   return (
     <div className={cn('relative h-full w-full overflow-hidden bg-ink-800', className)}>
-      <div className={cn('absolute inset-0 grid place-items-center bg-gradient-to-br', grad)}>
+      <div className={cn('absolute inset-0 grid place-items-center bg-linear-to-br/srgb', grad)}>
         <span className="font-display text-2xl font-extrabold text-white/80">
           {initials(name)}
         </span>
